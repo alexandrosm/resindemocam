@@ -25,7 +25,7 @@ app.get('/', function(req, res) {
 
 	tcpServer.listen(function() {
 		var cmd = 'gst-launch-0.10';
-		var options = null;
+		var options = {};
 		var args =
 			['videotestsrc', 'horizontal-speed=1', 'is-live=1',
 				'!', 'video/x-raw-rgb,framerate=30/1',
