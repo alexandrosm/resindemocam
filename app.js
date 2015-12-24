@@ -56,7 +56,7 @@ app.get('/', function(req, res) {
 	});
 });
 
-httpServer.listen(9001);
+httpServer.listen(80);
 
 function onSpawnError(data) {
 	console.log(data.toString());
