@@ -18,12 +18,7 @@ app.get('/', function(req, res) {
 	});
 
 	var tcpServer = net.createServer(function (socket) {
-		socket.on('data', function (data) {
-			res.write(data);
-		});
-		socket.on('close', function(had_error) {
-			res.end();
-		});
+		socket.pipe(res)
 	});
 
 	tcpServer.maxConnections = 1;
@@ -69,5 +64,5 @@ function onSpawnExit(code) {
 }
 
 process.on('uncaughtException', function(err) {
-	console.debug(err);
+	console.log(err);
 });
