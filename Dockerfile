@@ -7,6 +7,7 @@ RUN apt-get install -y libgstreamer0.10-0
 RUN apt-get install -y gstreamer0.10-tools
 RUN apt-get install -y gstreamer0.10-plugins-base
 RUN apt-get install -y gstreamer0.10-plugins-good
+RUN apt-get install -y gstreamer0.10-plugins-bad
 
 COPY package.json /usr/src/app/package.json
 
