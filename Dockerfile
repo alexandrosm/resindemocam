@@ -3,10 +3,10 @@ FROM resin/nuc-node:4.0
 ENV INITSYSTEM on
 
 RUN apt-get update
-RUN apt-get install -y libgstreamer1.0-0
-RUN apt-get install -y gstreamer1.0-tools
-RUN apt-get install -y gstreamer1.0-plugins-base
-RUN apt-get install -y gstreamer1.0-plugins-good
+RUN apt-get install -y libgstreamer0.10-0
+RUN apt-get install -y gstreamer0.10-tools
+RUN apt-get install -y gstreamer0.10-plugins-base
+RUN apt-get install -y gstreamer0.10-plugins-good
 
 COPY package.json /usr/src/app/package.json
 
