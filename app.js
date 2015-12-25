@@ -24,7 +24,7 @@ app.get('/', function(req, res) {
 	tcpServer.maxConnections = 1;
 
 	tcpServer.listen(function() {
-		var cmd = 'gst-launch-0.10';
+		var cmd = 'gst-launch-1.0';
 		var options = {};
 		var args =
 			['videotestsrc', 'horizontal-speed=1', 'is-live=1',
