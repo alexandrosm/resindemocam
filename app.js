@@ -1,3 +1,5 @@
+// original code from https://delog.wordpress.com/2011/04/26/stream-live-webm-video-to-browser-using-node-js-and-gstreamer/
+
 var express = require('express')
 var http = require('http')
 var net = require('net');
@@ -24,13 +26,13 @@ app.get('/', function(req, res) {
 	tcpServer.maxConnections = 1;
 
 	tcpServer.listen(function() {
-		var cmd = 'gst-launch-0.10';
+		var cmd = 'gst-launch-1.0';
 		var options = {};
 		var args =
 			['videotestsrc', 'horizontal-speed=1', 'is-live=1',
-				'!', 'video/x-raw-rgb,framerate=30/1',
-				'!', 'ffmpegcolorspace',
-				'!', 'vp8enc', 'speed=2',
+				'!', 'video/x-raw,format=\(string\)RGB,framerate=30/1',
+				'!', 'videoconvert',
+				'!', 'vp8enc', 'cpu-used=0',
 				'!', 'queue2',
 				'!', 'm.', 'audiotestsrc', 'is-live=1',
 				'!', 'audioconvert',
