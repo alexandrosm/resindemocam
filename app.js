@@ -29,12 +29,12 @@ app.get('/', function(req, res) {
 		var cmd = 'gst-launch-1.0';
 		var options = {};
 		var args =
-			['videotestsrc', 'horizontal-speed=1', 'is-live=1',
+			['v4l2src',
 				'!', 'video/x-raw,format=\(string\)RGB,framerate=30/1',
 				'!', 'videoconvert',
 				'!', 'vp8enc', 'cpu-used=0',
 				'!', 'queue2',
-				'!', 'm.', 'audiotestsrc', 'is-live=1',
+				'!', 'm.', 'audiotestsrc',
 				'!', 'audioconvert',
 				'!', 'vorbisenc',
 				'!', 'queue2',
